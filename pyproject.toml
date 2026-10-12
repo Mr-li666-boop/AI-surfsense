@@ -1,0 +1,15 @@
+[project]
+name = "laren-fastapi-ai"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "asyncmy>=0.2.16",
+    "fastapi>=0.143.0",
+    "pydantic-settings>=2.15.0",
+    "sqlalchemy>=2.1.4",
+    "uvicorn>=0.54.0",
+]
+
+[[tool.uv.index]]
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = true
