@@ -1,0 +1,23 @@
+[project]
+name = "laren-fastapi-ai"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "aiomysql>=0.3.2",
+    "asyncmy>=0.2.16",
+    "chonkie>=1.7.0",
+    "cryptography>=50.0.2",
+    "docling>=2.138.0",
+    "fastapi>=0.143.0",
+    "langgraph-checkpoint-sqlite>=3.1.2",
+    "openai>=3.29.0",
+    "psutil>=7.2.2",
+    "pydantic-settings>=2.15.0",
+    "pymilvus>=3.0.2",
+    "sqlalchemy[asyncio]>=2.1.4",
+    "uvicorn>=0.54.0",
+]
+
+[[tool.uv.index]]
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = true

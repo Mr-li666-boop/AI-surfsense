@@ -1,0 +1,113 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="alembic" />
+          <option value="asyncpg" />
+          <option value="authlib" />
+          <option value="azure-ai-documentintelligence" />
+          <option value="azure-storage-blob" />
+          <option value="boto3" />
+          <option value="celery" />
+          <option value="chonkie" />
+          <option value="composio" />
+          <option value="croniter" />
+          <option value="datasets" />
+          <option value="daytona" />
+          <option value="deepagents" />
+          <option value="discord-py" />
+          <option value="disposable-email-domains" />
+          <option value="docling" />
+          <option value="dulwich" />
+          <option value="elasticsearch" />
+          <option value="en-core-web-sm" />
+          <option value="fake-useragent" />
+          <option value="fastapi" />
+          <option value="fastapi-users" />
+          <option value="faster-whisper" />
+          <option value="fractional-indexing" />
+          <option value="github3-py" />
+          <option value="gitingest" />
+          <option value="google-api-python-client" />
+          <option value="google-auth-oauthlib" />
+          <option value="kokoro" />
+          <option value="langchain" />
+          <option value="langchain-community" />
+          <option value="langchain-daytona" />
+          <option value="langchain-litellm" />
+          <option value="langchain-unstructured" />
+          <option value="langgraph" />
+          <option value="langgraph-checkpoint-postgres" />
+          <option value="litellm" />
+          <option value="llama-cloud-services" />
+          <option value="markdown" />
+          <option value="markdownify" />
+          <option value="mcp" />
+          <option value="notion-client" />
+          <option value="notion-markdown" />
+          <option value="numpy" />
+          <option value="opensandbox" />
+          <option value="opensandbox-code-interpreter" />
+          <option value="opentelemetry-api" />
+          <option value="opentelemetry-exporter-otlp" />
+          <option value="opentelemetry-instrumentation-celery" />
+          <option value="opentelemetry-instrumentation-fastapi" />
+          <option value="opentelemetry-instrumentation-httpx" />
+          <option value="opentelemetry-instrumentation-logging" />
+          <option value="opentelemetry-instrumentation-psycopg" />
+          <option value="opentelemetry-instrumentation-redis" />
+          <option value="opentelemetry-instrumentation-sqlalchemy" />
+          <option value="opentelemetry-sdk" />
+          <option value="opentelemetry-semantic-conventions" />
+          <option value="pgvector" />
+          <option value="pillow" />
+          <option value="posthog" />
+          <option value="psycopg" />
+          <option value="pyarrow" />
+          <option value="pyjwt" />
+          <option value="pypandoc" />
+          <option value="pypandoc-binary" />
+          <option value="pypdf" />
+          <option value="python-ffmpeg" />
+          <option value="python-telegram-bot" />
+          <option value="redis" />
+          <option value="rerankers" />
+          <option value="scrapling" />
+          <option value="sentence-transformers" />
+          <option value="slack-sdk" />
+          <option value="slowapi" />
+          <option value="soundfile" />
+          <option value="spacy" />
+          <option value="sse-starlette" />
+          <option value="starlette" />
+          <option value="static-ffmpeg" />
+          <option value="stripe" />
+          <option value="tornado" />
+          <option value="trafilatura" />
+          <option value="unstructured" />
+          <option value="unstructured-client" />
+          <option value="uvicorn" />
+          <option value="validators" />
+          <option value="youtube-transcript-api" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="types.NoneType.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
