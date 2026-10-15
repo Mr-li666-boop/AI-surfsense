@@ -62,12 +62,16 @@ class Config(BaseSettings):
     CHUNK_SIZE: int = 500
     CHUNK_OVERLAP: int = 50
     SEARCH_TOP_K: int = 5
+    MAX_FILE_SIZE_MB: int = 500
 
     # ─── 阿里云 Embedding（固定，不随 LLM 切换）─────────────────────────
     # 阿里 DashScope Embedding 兼容 OpenAI API 格式
     ALIYUN_EMBEDDING_API_KEY: str = ""
     ALIYUN_EMBEDDING_BASE_URL: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
     ALIYUN_EMBEDDING_MODEL: str = "text-embedding-v3"
+
+    # 文件上传路径
+    UPLOAD_DIR: str = BASE_DIR / "uploads"
 
     def current_llm(self) -> dict[str, str]:
         """根据 DEFAULT_PROVIDER 返回当前 LLM 配置字典。"""
