@@ -14,7 +14,7 @@ from app.db import get_async_session
 from app.models.document import Document
 from app.models.workspace import Workspace
 from app.tasks.document_tasks import ingest_document_task
-from app.utils.doucment_utils import get_hash_filename_workspace, get_hash_in_sql
+from app.utils.doucment_utils import get_hash_filename_workspace, get_hash_in_sql, store_document_file
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -119,7 +119,7 @@ async def upload_document(
             document = Document(
                 workspace_id=workspace_id,
                 title=filename if filename != "unknown" else "Uploaded File",
-                file_type=content_type,
+                file_type="file",
                 document_metadata={
                     "FILE_NAME": filename,
                     "file_size": file_size,
@@ -127,7 +127,10 @@ async def upload_document(
                 },
                 unique_identifier_hash=unique_hash,
                 status="pending",
-                updated_at=datetime.now(UTC)
+                updated_at=datetime.now(UTC),
+                # TODO 目前写死，后面加用户认证再改
+                created_by_id=1
+
             )
             session.add(document)
             created_documents.append(document)
@@ -142,10 +145,44 @@ async def upload_document(
                 detail=f"文件处理失败 {filename}: {e!s}",
             ) from e
 
+    # 将文档基本信息保存到数据库
     if created_documents:
         await session.commit()
         for doc in created_documents:
             await session.refresh(doc)
+
+
+    # 将原始上传文件持久化保存至持久化存储
+    for document,temp_path,filename,content_type in files_to_process:
+        try:
+            # 异步多线程读取文件二进制
+            original_bytes = await asyncio.to_thread(
+                lambda p=temp_path: Path(p).read_bytes()
+            )
+
+            # 保存原始文件
+            await store_document_file(
+                session,
+                document_id=document.id,
+                workspace_id=workspace_id,
+                data=original_bytes,
+                filename=filename,
+                mime_type=content_type,
+                # TODO 目前写死，后面加用户认证再改
+                created_by_id=1,
+            )
+
+        except Exception as storage_error:
+            logger.warning(
+            "文档 % s 的原始上传文件存储失败：% s",
+            document.id,
+            storage_error,
+            )
+
+    await session.commit()
+
+    # 异步进行文档向量化
+
 
 
 
